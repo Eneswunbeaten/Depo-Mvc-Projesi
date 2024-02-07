@@ -1,0 +1,32 @@
+﻿@using MvcStok.Models.Entity
+@model Satis;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            @using (Html.BeginForm("Ekle", "Satis", FormMethod.Post))
+            {
+                <div class="form-group">
+                    <h3>Satış Ekle</h3>
+
+                    @Html.LabelFor(m => m.Urun, "Ürün :")
+                    @Html.DropDownListFor(m => m.Urun, (List<SelectListItem>)ViewBag.urunler, new { @class = "form-control" })
+                    <br />
+                    @Html.LabelFor(m => m.Musteri, "Müşteri:")
+                    @Html.DropDownListFor(m => m.Musteri, (List<SelectListItem>)ViewBag.musteriler, new { @class = "form-control" })
+                    <br />
+                    @Html.LabelFor(m => m.Adet, "Adet :")
+                    @Html.TextBoxFor(m => m.Adet, new { @class = "form-control" })
+                    <br />
+                    @Html.LabelFor(m => m.Fiyat, "Fiyat:")
+                    @Html.TextBoxFor(m => m.Fiyat, new { @class = "form-control" })
+                    <br />
+                    <button type="submit" class="btn btn-info">Kaydet</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>

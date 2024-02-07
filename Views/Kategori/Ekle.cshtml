@@ -1,0 +1,22 @@
+﻿@using MvcStok.Models.Entity
+@model Kategori;
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            @using (Html.BeginForm("Ekle", "Kategori", FormMethod.Post))
+            {
+                <div class="form-group">
+                    <h3>Kategori Ekle</h3>
+                    <br />
+                    @Html.LabelFor(m => m.KategoriAd,"Kategori Adı : ")
+                    @Html.TextBoxFor(m => m.KategoriAd, new { @class = "form-control" })
+                    <br /><br />
+                    <button class="btn btn-info">Kaydet</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>

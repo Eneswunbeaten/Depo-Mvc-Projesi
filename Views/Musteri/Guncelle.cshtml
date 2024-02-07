@@ -1,0 +1,28 @@
+﻿@using MvcStok.Models.Entity
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            @model Musteri;
+
+            @using (Html.BeginForm("Guncelle", "Musteri", FormMethod.Post))
+            {
+                <div class="form-group">
+                    <h3>Müşteri Güncelle</h3>
+
+                    @Html.LabelFor(m => m.MusteriAd, "Müşteri Adı:")
+                    @Html.TextBoxFor(m => m.MusteriAd, new { @class = "form-control" })
+                    <br />
+                    @Html.LabelFor(m => m.MusteriSoyad, "Müşteri Soyadı:")
+                    @Html.TextBoxFor(m => m.MusteriSoyad, new { @class = "form-control" })
+                    <br />
+                    <button type="submit" class="btn btn-info">Kaydet</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>

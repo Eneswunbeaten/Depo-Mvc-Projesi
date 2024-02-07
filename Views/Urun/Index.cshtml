@@ -1,0 +1,35 @@
+﻿@using MvcStok.Models.ViewModels
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model List<UrunViewModel>;
+<h2>Ürünler</h2>
+
+<table class="table">
+    <tr>
+        <th scope="col" colspan="2">#</th>
+        <th scope="col" colspan="2">Ürün Adı</th>
+        <th scope="col" colspan="2">Ürün Kategorisi</th>
+        <th scope="col" colspan="2">Ürün Stoğu</th>
+        <th scope="col" colspan="2">Ürün Fiyatı</th>
+        <th scope="col">Düzenle</th>
+        <th scope="col">Kaldır</th>
+    </tr>
+
+    @foreach (var urun in Model)
+    {
+        <tr>
+            <th scope="row" colspan="2">@urun.Id</th>
+            <td colspan="2">@urun.Ad</td>
+            <td colspan="2">@urun.Kategori</td>
+            <td colspan="2">@urun.Stok</td>
+            <td colspan="2">@{var a=urun.Fiyat + " ₺";}@a</td>
+            <td><a class="btn btn-primary" asp-action="Guncelle" asp-route-id="@urun.Id">Güncelle</a></td>
+            <td><a class="btn btn-warning" asp-action="Kaldir" asp-route-id="@urun.Id">Kaldır</a></td>
+        </tr>
+    }
+</table>
+<p>Toplam @Model.Count Ürün bulunuyor</p>
+<a class="btn btn-primary" asp-action="Ekle">Ürün Ekle</a>
+<h2>Yakında Gelecek Ürünler</h2>
+@await Component.InvokeAsync("YeniUrunler")

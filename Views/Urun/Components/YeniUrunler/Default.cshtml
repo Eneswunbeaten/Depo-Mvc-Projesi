@@ -1,0 +1,23 @@
+﻿@using MvcStok.Models.ViewModels
+@model List<UrunViewModel>
+<table class="table">
+    <tr>
+        <th scope="col" colspan="2">#</th>
+        <th scope="col" colspan="2">Ürün Adı</th>
+        <th scope="col" colspan="2">Ürün Kategorisi</th>
+        <th scope="col" colspan="2">Ürün Stoğu</th>
+        <th scope="col" colspan="2">Ürün Fiyatı</th>
+    </tr>
+
+    @foreach (var urun in Model)
+    {
+        <tr>
+            <th scope="row" colspan="2">@urun.Id</th>
+            <td colspan="2">@urun.Ad</td>
+            <td colspan="2">@urun.Kategori</td>
+            <td colspan="2">@urun.Stok</td>
+            <td colspan="2">@urun.Fiyat</td>
+
+        </tr>
+    }
+</table>
